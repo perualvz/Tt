@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Botones de Calidad de Video</title>
+  <title>Adivina el Video</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       background: #f2f2f2;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
     }
 
     .contenedor {
@@ -22,7 +29,6 @@
       gap: 15px;
       width: 100%;
       max-width: 300px;
-      text-align: center;
     }
 
     .btn {
@@ -30,15 +36,23 @@
       font-size: 18px;
       border: none;
       border-radius: 8px;
-      background-color: #007BFF;
       color: white;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
+    /* Colores tipo semáforo */
+    .verde { background-color: #28a745; }
+    .verde:hover { background-color: #1e7e34; }
+
+    .amarillo { background-color: #ffc107; color: black; }
+    .amarillo:hover { background-color: #e0a800; }
+
+    .rojo { background-color: #dc3545; }
+    .rojo:hover { background-color: #a71d2a; }
+
+    .azul { background-color: #007bff; }
+    .azul:hover { background-color: #0056b3; }
 
     /* Responsivo */
     @media (max-width: 600px) {
@@ -50,28 +64,43 @@
   </style>
 </head>
 <body>
+  <h1>Adivina cuál es el vídeo</h1>
   <div class="contenedor">
-    <button id="btn240" class="btn">240p (Google)</button>
-    <button id="btn480" class="btn">480p (YouTube)</button>
-    <button id="btn720" class="btn">720p (Pinterest)</button>
-    <button id="btn1080" class="btn">1080p (TikTok)</button>
+    <button id="btn1" class="btn verde">Ver</button>
+    <button id="btn2" class="btn amarillo">Ver</button>
+    <button id="btn3" class="btn rojo">Ver</button>
+    <button id="btn4" class="btn azul">Ver</button>
   </div>
 
   <script>
-    document.getElementById("btn240").addEventListener("click", () => {
-      window.location.href = "https://www.google.com";
+    // Lista de enlaces posibles
+    const enlaces = [
+      "https://www.google.com",
+      "https://www.youtube.com",
+      "https://www.pinterest.com",
+      "https://www.tiktok.com"
+    ];
+
+    // Función para obtener enlace aleatorio
+    function enlaceAleatorio() {
+      return enlaces[Math.floor(Math.random() * enlaces.length)];
+    }
+
+    // Asignamos enlaces aleatorios a cada botón
+    document.getElementById("btn1").addEventListener("click", () => {
+      window.location.href = enlaceAleatorio();
     });
 
-    document.getElementById("btn480").addEventListener("click", () => {
-      window.location.href = "https://www.youtube.com";
+    document.getElementById("btn2").addEventListener("click", () => {
+      window.location.href = enlaceAleatorio();
     });
 
-    document.getElementById("btn720").addEventListener("click", () => {
-      window.location.href = "https://www.pinterest.com";
+    document.getElementById("btn3").addEventListener("click", () => {
+      window.location.href = enlaceAleatorio();
     });
 
-    document.getElementById("btn1080").addEventListener("click", () => {
-      window.location.href = "https://www.tiktok.com";
+    document.getElementById("btn4").addEventListener("click", () => {
+      window.location.href = enlaceAleatorio();
     });
   </script>
 </body>
