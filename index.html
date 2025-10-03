@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Botón con JS</title>
+  <title>Botones de Calidad de Video</title>
   <style>
     body {
       margin: 0;
@@ -16,8 +16,17 @@
       background: #f2f2f2;
     }
 
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+
     .btn {
-      padding: 15px 25px;
+      padding: 15px;
       font-size: 18px;
       border: none;
       border-radius: 8px;
@@ -34,22 +43,35 @@
     /* Responsivo */
     @media (max-width: 600px) {
       .btn {
-        width: 90%;
+        width: 100%;
         font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <button id="miBoton" class="btn">Ir a Google</button>
+  <div class="contenedor">
+    <button id="btn240" class="btn">240p (Google)</button>
+    <button id="btn480" class="btn">480p (YouTube)</button>
+    <button id="btn720" class="btn">720p (Pinterest)</button>
+    <button id="btn1080" class="btn">1080p (TikTok)</button>
+  </div>
 
   <script>
-    // Seleccionamos el botón por su id
-    const boton = document.getElementById("miBoton");
+    document.getElementById("btn240").addEventListener("click", () => {
+      window.location.href = "https://www.google.com";
+    });
 
-    // Agregamos un event listener
-    boton.addEventListener("click", () => {
-      window.location.href = "https://otieu.com/4/9948018"; // Redirige a Google
+    document.getElementById("btn480").addEventListener("click", () => {
+      window.location.href = "https://www.youtube.com";
+    });
+
+    document.getElementById("btn720").addEventListener("click", () => {
+      window.location.href = "https://www.pinterest.com";
+    });
+
+    document.getElementById("btn1080").addEventListener("click", () => {
+      window.location.href = "https://www.tiktok.com";
     });
   </script>
 </body>
